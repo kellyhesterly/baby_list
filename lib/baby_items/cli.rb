@@ -19,7 +19,8 @@ class BabyItems::CLI
   end
 
   def get_user_category
-    chosen_category = gets.strip
+    input = gets.strip.to_i
+    puts "You selected #{@categories[input]}!"
   end
 
 end
