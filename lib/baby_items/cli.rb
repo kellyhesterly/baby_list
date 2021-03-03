@@ -34,4 +34,9 @@ class BabyItems::CLI
     input.to_i <= data.length && input.to_i > 0
   end
 
+  def get_items
+    BabyItems::Item.new("Crib")
+    BabyItems::Item.new("Diaper")
+    @items = BabyItems::Item.all
+  end
 end
