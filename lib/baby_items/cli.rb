@@ -19,7 +19,7 @@ class BabyItems::CLI
   end
 
   def get_user_category
-    input = gets.strip.to_i
+    input = gets.strip.to_i - 1
       if input_valid?(input, categories)
         puts "You selected #{@categories[input]}."
       else
