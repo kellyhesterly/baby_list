@@ -5,6 +5,7 @@ class BabyItems::CLI
     categories
     list_categories
     selected_category
+    get_items
     #get_category
     #scrape_baby_items for selected (category)
   end
@@ -23,6 +24,7 @@ class BabyItems::CLI
     input = gets.strip.to_i - 1
       if input_valid?(input, categories)
         puts "You selected #{@categories[input]}."
+        get_items
         #show_baby_items_for(user_category)
       else
         puts "I'm sorry, please select a number on the list."
@@ -38,5 +40,6 @@ class BabyItems::CLI
     BabyItems::Item.new("Crib")
     BabyItems::Item.new("Diaper")
     @items = BabyItems::Item.all
+    binding.pry
   end
 end
