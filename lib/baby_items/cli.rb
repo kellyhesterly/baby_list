@@ -29,7 +29,7 @@ class BabyItems::CLI
   end
 
   def input_valid?(input, data)
-    input <= data.length && input > 0
+    input.to_i <= data.length && input.to_i > 0
   end
 
 end
