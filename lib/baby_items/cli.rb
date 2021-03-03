@@ -4,7 +4,7 @@ class BabyItems::CLI
     puts "\nWelcome to the top-rated baby items list!\n"
     categories
     list_categories
-    get_user_category
+    selected_category
     #get_category
     #scrape_baby_items for selected (category)
   end
@@ -15,13 +15,15 @@ class BabyItems::CLI
 
   def list_categories
     puts "\nPlease select the category you wish to see by selecting the accompany number.\n"
-    @categories.each.with_index(1) {|category, index| puts "#{index}. #{category}" }
+    puts ""
+    @categories.each.with_index(1) {|category, index| puts "#{index}. #{category}"}
   end
 
-  def get_user_category
+  def selected_category
     input = gets.strip.to_i - 1
       if input_valid?(input, categories)
         puts "You selected #{@categories[input]}."
+        #show_baby_items_for(user_category)
       else
         puts "I'm sorry, please select a number on the list."
         get_user_category
