@@ -1,0 +1,2 @@
+class BabyItems::Item
+end

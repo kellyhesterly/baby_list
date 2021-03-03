@@ -1,0 +1,2 @@
+class BabyItems::Scraper
+end
