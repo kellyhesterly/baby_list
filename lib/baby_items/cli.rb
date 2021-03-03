@@ -1,7 +1,7 @@
 class BabyItems::CLI
 
   def call
-    puts "Welcome to the top-rated baby items list! Please select the category you wish to see."
+    puts "\nWelcome to the top-rated baby items list!\n"
     get_categories
     get_user_category
     #get_category
@@ -13,6 +13,7 @@ class BabyItems::CLI
   end
 
   def get_user_category
+    puts "\nPlease select the category you wish to see by selecting the accompany number.\n"
     @categories.each.with_index(1) {|category, index| puts "#{index}. #{category}" }
   end
 end
