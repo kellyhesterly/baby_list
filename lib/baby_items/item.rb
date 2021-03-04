@@ -13,6 +13,8 @@ class BabyItems::Item
   end
 
   def self.all
+    BabyItems::Scraper.scrape_baby_items if @@all.empty?
     @@all
+    end
   end
 end
