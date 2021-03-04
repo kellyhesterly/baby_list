@@ -21,8 +21,6 @@ class BabyItems::CLI
   end
 
   def get_items
-    BabyItems::Item.new("Crib")
-    BabyItems::Item.new("Diaper")
     @items = BabyItems::Item.all
   end
 
@@ -35,7 +33,7 @@ class BabyItems::CLI
         #show_baby_items_for(user_category)
       else
         puts "I'm sorry, please select a number on the list."
-        get_user_category
+        selected_category
     end
   end
 
