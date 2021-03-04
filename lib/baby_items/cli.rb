@@ -25,9 +25,10 @@ class BabyItems::CLI
   end
 
   def selected_category
-    input = gets.strip.to_i - 1
+    input = gets.strip.to_i
       if input_valid?(input, categories)
-        puts "You selected #{@categories[input]}."
+        puts "\nYou selected #{@categories[input]}.\n"
+        puts ""
         get_items
         @items.each.with_index(1) {|item, index| puts "#{index}. #{item.name}"}
         #show_baby_items_for(user_category)
@@ -41,5 +42,9 @@ class BabyItems::CLI
     input.to_i <= data.length && input.to_i > 0
   end
 
+  def show_baby_items_for(chosen_category)
+    item = @items[input - 1]
+    puts "Here are items for #{item.name}"
+  end
 
 end
