@@ -20,11 +20,18 @@ class BabyItems::CLI
     @categories.each.with_index(1) {|category, index| puts "#{index}. #{category}"}
   end
 
+  def get_items
+    BabyItems::Item.new("Crib")
+    BabyItems::Item.new("Diaper")
+    @items = BabyItems::Item.all
+  end
+
   def selected_category
     input = gets.strip.to_i - 1
       if input_valid?(input, categories)
         puts "You selected #{@categories[input]}."
         get_items
+        @items.each.with_index(1) {|item, index| puts "#{index}. #{item.name}"}
         #show_baby_items_for(user_category)
       else
         puts "I'm sorry, please select a number on the list."
@@ -36,10 +43,5 @@ class BabyItems::CLI
     input.to_i <= data.length && input.to_i > 0
   end
 
-  def get_items
-    BabyItems::Item.new("Crib")
-    BabyItems::Item.new("Diaper")
-    @items = BabyItems::Item.all
-    binding.pry
-  end
+
 end
