@@ -5,6 +5,7 @@ require_relative "./baby_items/scraper"
 
 
 require 'pry'
+require 'nokogiri'
 
 module BabyItems
   class Error < StandardError; end
