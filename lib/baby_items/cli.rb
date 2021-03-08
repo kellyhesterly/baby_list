@@ -25,7 +25,7 @@ class BabyItems::CLI
   end
 
   def selected_category
-    input = gets.strip.to_i
+    input = gets.strip.to_i - 1
       if input_valid?(input, categories)
         puts "\nYou selected #{@categories[input]}.\n"
         puts ""
@@ -43,8 +43,8 @@ class BabyItems::CLI
   end
 
   def show_baby_items_for(chosen_category)
-    item = @items[input - 1]
-    puts "Here are items for #{item.name}"
+    category = @categories[chosen_category]
+    puts "Here are items for #{category}"
   end
 
 end
