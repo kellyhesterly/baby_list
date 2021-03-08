@@ -29,8 +29,8 @@ class BabyItems::CLI
       if input_valid?(input, categories)
         puts "\nYou selected #{@categories[input]}.\n"
         puts ""
-        get_items
-        @items.each.with_index(1) {|item, index| puts "#{index}. #{item.name}"}
+        # get_items
+        # @items.each.with_index(1) {|item, index| puts "#{index}. #{item.name}"}
         #show_baby_items_for(user_category)
       else
         puts "I'm sorry, please select a number on the list."
