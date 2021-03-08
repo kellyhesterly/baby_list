@@ -5,7 +5,15 @@ class BabyItems::Scraper
 
     items = doc.css(".product-title.text-underline-fancy")
     items.each.with_index(1) {|item, index| puts "#{index}. #{item.text.strip}"}
-    # binding.pry
+
+    # sort_categories = doc.css(".mtl p").children.text
+    # sort_categories.map do |item|
+    #   if sort_categories.include?("bottles" || "breast" || "nursing")
+    #       << item
+    #
+    # # binding.pry
+    #   end
+    # end
   end
 end
 

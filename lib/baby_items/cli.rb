@@ -11,7 +11,7 @@ class BabyItems::CLI
   end
 
   def categories
-    @categories = ["Nursing & Feeding", "Lounging", "Hygiene & Health", "Transportation", "Sleep", "Diaper Changing", "Play"]
+    @categories = BabyItems::Category.all
   end
 
   def list_categories
