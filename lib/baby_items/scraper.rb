@@ -1,6 +1,9 @@
 class BabyItems::Scraper
 
   def self.scrape_baby_items
+    #Go to Babylist website, find the items
+    #If item has a certain description, sort item in one of seven categories
+
     doc = Nokogiri::HTML(open("https://www.babylist.com/hello-baby/best-baby-products"))
 
     item_names = doc.css(".product-title.text-underline-fancy")
