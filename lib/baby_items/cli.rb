@@ -6,8 +6,7 @@ class BabyItems::CLI
     list_categories
     selected_category
     get_items
-    #get_category
-    #scrape_baby_items for selected (category)
+        #scrape_baby_items for selected (category)
   end
 
   def categories
@@ -20,18 +19,11 @@ class BabyItems::CLI
     @categories.each.with_index(1) {|category, index| puts "#{index}. #{category}"}
   end
 
-  def get_items
-    @items = BabyItems::Item.all
-  end
-
   def selected_category
-    input = gets.strip.to_i - 1
+    input = gets.strip.to_i
       if input_valid?(input, categories)
-        puts "\nYou selected #{@categories[input]}.\n"
+        puts "\nYou selected #{@categories[input - 1]}.\n"
         puts ""
-        # get_items
-        # @items.each.with_index(1) {|item, index| puts "#{index}. #{item.name}"}
-        #show_baby_items_for(user_category)
       else
         puts "I'm sorry, please select a number on the list."
         selected_category
@@ -42,9 +34,30 @@ class BabyItems::CLI
     input.to_i <= data.length && input.to_i > 0
   end
 
-  def show_baby_items_for(chosen_category)
-    category = @categories[chosen_category]
-    puts "Here are items for #{category}"
+  def get_items
+    @items = BabyItems::Item.all
+    input = gets.strip.to_i
+    # case input 
+    # when "1"
+    #   #list items that fall under "Nursing & Feeding" category
+    # when "2"
+    #   #list items that fall under "Lounging" category
+    # when "3"
+    #   #list items that fall under "Hygiene & Health" category
+    # when "4"
+    #   #list items that fall under "Transportation" category
+    # when "5"
+    #   #list items that fall under "Sleep" category
+    # when "6"
+    #   #list items that fall under "Diaper Changing" category
+    # when "7"
+    #   #list items that fall under "Play" category
+    # end
   end
+
+  # def show_baby_items_for(chosen_category)
+  #   category = @categories[chosen_category]
+  #   puts "Here are items for #{category}"
+  # end
 
 end
