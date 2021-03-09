@@ -6,6 +6,7 @@ class BabyItems::CLI
     list_categories
     selected_category
     get_items
+    select_item
         #scrape_baby_items for selected (category)
   end
 
@@ -36,8 +37,8 @@ class BabyItems::CLI
 
   def get_items
     @items = BabyItems::Item.all
-    input = gets.strip.to_i
-    # case input 
+    # input = gets.strip.to_i
+    # case input
     # when "1"
     #   #list items that fall under "Nursing & Feeding" category
     # when "2"
@@ -53,6 +54,42 @@ class BabyItems::CLI
     # when "7"
     #   #list items that fall under "Play" category
     # end
+  end
+
+  def select_item
+    puts "\nSelect the item you wish to see in further detail by selecting the accompany number.\n"
+    puts ""
+    input = gets.strip.to_i
+
+    item = BabyItems::Item.find(input)
+
+    print_item(item)
+
+    puts "\nWould you like to view more items? Please type 'Y' or 'N'.\n"
+    input = gets.strip.upcase
+    if input == "Y"
+      list_categories
+    elsif input == "N"
+      puts "\nThank you for stopping by! Have a wonderful day!\n"
+      exit
+    else
+      "\nI'm sorry, I didn't quite understand that answer. Let me bring you back to the main menu.\n"
+      list_categories
+    end
+  end
+
+  def print_item(item)
+    puts "\n----------#{item.name}----------\n"
+    puts "\nPrice: #{item.price}\n"
+    puts "Available at: #{item.stores}"
+
+    puts "\n----------Description----------\n"
+    puts "\n#{item.description}\n"
+    puts ""
+
+    puts "\n----------Specs----------\n"
+    puts "\n#{item.specs}\n"
+    puts ""
   end
 
   # def show_baby_items_for(chosen_category)
