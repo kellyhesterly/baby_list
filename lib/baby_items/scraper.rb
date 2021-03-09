@@ -10,6 +10,9 @@ class BabyItems::Scraper
     item_names.each.with_index(1) {|item, index| puts "#{index}. #{item.text.strip}"}
   end
 
+  def self.scrape_baby_item_details
+    #When item is called on, scrape the properties
+  end
 end
 
 
