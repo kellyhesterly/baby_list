@@ -1,7 +1,7 @@
 class BabyItems::Category
   attr_accessor :name, :items
 
-  @@all = ["Nursing & Feeding", "Lounging", "Hygiene & Health", "Transportation", "Sleep", "Diaper Changing", "Play"]
+  @@all = ["🍼  Nursing & Feeding", "🚼  Lounging", "🏥  Hygiene & Health", "🚙  Transportation", "🌙  Sleep", "💩  Diaper Changing", "🎭  Play"]
 
   def initialize
     @name = name
@@ -18,6 +18,5 @@ class BabyItems::Category
 
   def items
     BabyItems::Item.all.select {|item| item.category == self}
-    binding.pry
   end
 end

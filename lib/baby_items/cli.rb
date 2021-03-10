@@ -1,7 +1,7 @@
 class BabyItems::CLI
 
   def call
-    puts "\n          Welcome to the top-rated baby items list!        \n"
+    puts "\n        ✯ Welcome to the top-rated baby items list! ✯   \n"
     puts "       _______________________________________________   "
     categories
     list_categories
