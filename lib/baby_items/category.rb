@@ -1,7 +1,7 @@
 class BabyItems::Category
   attr_accessor :name, :items
 
-  @@all = ["🍼  Nursing & Feeding", "🚼  Lounging", "🏥  Hygiene & Health", "🚙  Transportation", "🌙  Sleep", "💩  Diaper Changing", "🎭  Play"]
+  @@all = ["🍼  Nursing & Feeding", "🚼  Lounging", "🏥  Health & Safety", "🚙  Transportation", "🌙  Sleep", "💩  Diaper Changing", "🎭  Play"]
 
   def initialize
     @name = name

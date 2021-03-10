@@ -1,8 +1,9 @@
 class BabyItems::CLI
 
   def call
-    puts "\n        ✯ Welcome to the top-rated baby items list! ✯   \n"
-    puts "       _______________________________________________   "
+    puts "       ________________________________________________   "
+    puts "\n       ⭐️  Welcome to the top-rated Baby Items list! ⭐️   \n"
+    puts "       ________________________________________________   "
     categories
     list_categories
     selected_category
@@ -24,6 +25,7 @@ class BabyItems::CLI
 
   def selected_category
     input = gets.strip.to_i
+
       if input_valid?(input, categories)
         puts "\nYou selected #{@categories[input - 1]}.\n"
         puts ""
