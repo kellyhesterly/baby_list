@@ -1,11 +1,13 @@
 class BabyItems::CLI
 
   def call
-    puts "\nWelcome to the top-rated baby items list!\n"
+    puts "\n          Welcome to the top-rated baby items list!        \n"
+    puts "       _______________________________________________   "
     categories
     list_categories
     selected_category
-    get_items
+    items
+    list_items
     select_item
         #scrape_baby_items for selected (category)
   end
@@ -35,10 +37,14 @@ class BabyItems::CLI
     input.to_i <= data.length && input.to_i > 0
   end
 
-  def get_items
+  def items
     @items = BabyItems::Item.all
+  end
+
+  def list_items
     # input = gets.strip.to_i
-    # case input
+    # categories = input
+    # case categories
     # when "1"
     #   #list items that fall under "Nursing & Feeding" category
     # when "2"
@@ -61,33 +67,39 @@ class BabyItems::CLI
     puts ""
     input = gets.strip.to_i
 
-    item = BabyItems::Item.find(input)
-
-    print_item(item)
-
-    puts "\nWould you like to view more items? Please type 'Y' or 'N'.\n"
-    input = gets.strip.upcase
-    if input == "Y"
-      list_categories
-    elsif input == "N"
-      puts "\nThank you for stopping by! Have a wonderful day!\n"
-      exit
-    else
-      "\nI'm sorry, I didn't quite understand that answer. Let me bring you back to the main menu.\n"
-      list_categories
-    end
+  #     # item = BabyItems::Item.find(input)
+  #
+  #     # if input_valid?(input, items)
+  #     #   print_item(item)
+  #     # else
+  #     #   puts "I'm sorry, please select a number on the list."
+  #     #   select_item
+  #     # end
+  #
+  # #   puts "\nWould you like to view more items? Please type 'Y' or 'N'.\n"
+  # #   input = gets.strip.upcase
+  # #   if input == "Y"
+  # #     puts "Taking you back to the category list."
+  # #     list_categories
+  # #   elsif input == "N"
+  # #     puts "\nThank you for stopping by! Have a wonderful day!\n"
+  # #     exit
+  # #   else
+  # #     "\nI'm sorry, I didn't quite understand that answer. Let me bring you back to the main menu.\n"
+  # #     list_categories
+  # #   end
   end
 
   def print_item(item)
-    puts "\n----------#{item.name}----------\n"
-    puts "\nPrice: #{item.price}\n"
+    puts "\n        #{item.name}        \n"
+    puts "\nPrice: $#{item.price}\n"
     puts "Available at: #{item.stores}"
 
-    puts "\n----------Description----------\n"
+    puts "\n        Description         \n"
     puts "\n#{item.description}\n"
     puts ""
 
-    puts "\n----------Specs----------\n"
+    puts "\n          Specs             \n"
     puts "\n#{item.specs}\n"
     puts ""
   end

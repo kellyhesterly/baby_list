@@ -23,7 +23,7 @@ class BabyItems::Item
   end
 
   def self.find(id)
-    self.all[id - 1]
+    @@all[id.to_i - 1]
   end
   # def self.category
   #   BabyItems::Scraper.scrape_baby_items if BabyItems::Category.all[0]
