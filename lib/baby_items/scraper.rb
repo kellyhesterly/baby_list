@@ -27,21 +27,22 @@ class BabyItems::Scraper
       items = []
       doc.css(".product-section").each do |card|
         card.css(".product-title.text-underline-fancy").each do |name|
-          item_name = name.text
+          item_name = name.text.strip
           items << item_name
         end
       end
-      items
+      items.each.with_index(1) {|item, index| puts "#{index}. #{item}"}
 
       item_desc = []
       doc.css(".mtl").each do |card|
         card.css("p").each do |description|
-          item_description = description.text
+          item_description = description.text.strip
           item_desc << item_description
         end
       end
-      item_desc
+      item_desc.each.with_index(1) {|desc, index| puts "#{index}. #{desc}"}
 
+    
     # sort_by_categories = doc.css(".mtl").children.css("p")
     # item_descriptions.map do |description|
     #  if description.text.include?("bottles" || "breast" || "nursing")
