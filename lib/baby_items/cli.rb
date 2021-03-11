@@ -15,12 +15,12 @@ class BabyItems::CLI
   def list_items
     # @items = ["Stroller", "Carrier", "Car Seat"]
     @items = BabyItems::Item.all
+    puts "\nPlease select the item you wish to see by selecting the accompany number.\n"
+    puts ""
+
   end
 
   def get_user_item
-    puts "\nPlease select the item you wish to see for further details by selecting the accompany number.\n"
-    puts ""
-
     input = gets.strip.to_i
 
     if valid_input?(input, @items)
