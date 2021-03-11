@@ -1,5 +1,5 @@
 class BabyItems::Item
-  attr_accessor :name, :price, :description, :stores, :specs, :category
+  attr_accessor :name, :price, :description, :stores, :specs
 
   @@all = []
 
@@ -9,7 +9,6 @@ class BabyItems::Item
     @description = description
     @stores = stores
     @specs = specs
-    @category = category
     save
   end
 
@@ -18,8 +17,7 @@ class BabyItems::Item
   end
 
   def self.all
-    BabyItems::Scraper.scrape_baby_items if @@all.empty?
-    @@all
+    BabyItems::Scraper.scrape_baby_items
   end
 
   def self.find(id)
