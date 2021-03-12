@@ -28,7 +28,7 @@ class BabyItems::CLI
       puts "\nI'm sorry, please select a number on the list\n"
       get_user_item
     end
-    # print_item(item)
+    print_item(input)
 
     puts "\nWould you like to view another item?  Please enter 'Y' or 'N'.\n"
      input = gets.strip.upcase
@@ -49,41 +49,25 @@ class BabyItems::CLI
     input.to_i <= data.length && input.to_i > 0
   end
 
-
-
-
-
-
-  # #   puts "\nWould you like to view more items? Please type 'Y' or 'N'.\n"
-  # #   input = gets.strip.upcase
-  # #   if input == "Y"
-  # #     puts "Taking you back to the category list."
-  # #     list_categories
-  # #   elsif input == "N"
-  # #     puts "\nThank you for stopping by! Have a wonderful day!\n"
-  # #     exit
-  # #   else
-  # #     "\nI'm sorry, I didn't quite understand that answer. Let me bring you back to the main menu.\n"
-  # #     list_categories
-  # #   end
-
   def print_item(item)
-    puts "\n        #{item.name}        \n"
+    @item = BabyItems::Item.individual_item
+    puts "       ________________________________________________   "
+    puts "\n                   ⭐️  #{item.name} ⭐️   \n"
+    puts "       ________________________________________________   "
     puts "\nPrice: $#{item.price}\n"
     puts "Available at: #{item.stores}"
 
-    puts "\n        Description         \n"
+    puts "       ________________________________________________   "
+    puts "\n                    ⭐️   Description ⭐️   \n"
+    puts "       ________________________________________________   "
     puts "\n#{item.description}\n"
     puts ""
 
-    puts "\n          Specs             \n"
+    puts "       ________________________________________________   "
+    puts "\n                     ⭐️  Specs ⭐️   \n"
+    puts "       ________________________________________________   "
     puts "\n#{item.specs}\n"
     puts ""
   end
-
-  # def show_baby_items_for(chosen_category)
-  #   category = @categories[chosen_category]
-  #   puts "Here are items for #{category}"
-  # end
 
 end

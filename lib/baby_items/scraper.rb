@@ -8,16 +8,23 @@ class BabyItems::Scraper
         #this iteration gives me the list of all items from website
   end
 
-  # def self.scrape_baby_item_details
-  #   #When item is called on, scrape the properties
-  #   item = BabyItems::Item.new
-  #   item.name =
-  #   item.price =
-  #   item.description =
-  #   item.stores =
-  #   item.specs =
-  #   item.category =
-  # end
+  def self.scrape_baby_item_details
+    doc = Nokogiri::HTML(open("https://www.babylist.com/hello-baby/best-baby-products"))
+    array_of_item_links = doc.css(".product-description-container a").map {|el| el.attribute('href').value}
+    binding.pry
+
+    # doc = Nokogiri::HTML(open("https://www.babylist.com/hello-baby/best-baby-products"))
+    # item_profile_page = doc.css
+    #When item is called on, scrape the properties
+
+    # item = BabyItems::Item.new
+    # item.name =
+    # item.price =
+    # item.description =
+    # item.stores =
+    # item.specs =
+    # item.category =
+  end
 end
 
 

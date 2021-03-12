@@ -20,6 +20,10 @@ class BabyItems::Item
     BabyItems::Scraper.scrape_baby_items
   end
 
+  def self.individual_item
+    BabyItems::Scraper.scrape_baby_item_details
+  end
+
   def self.find(id)
     @@all[id.to_i - 1]
   end
