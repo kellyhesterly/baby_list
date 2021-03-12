@@ -17,18 +17,32 @@ class BabyItems::CLI
     @items = BabyItems::Item.all
     puts "\nPlease select the item you wish to see by selecting the accompany number.\n"
     puts ""
-
   end
 
   def get_user_item
     input = gets.strip.to_i
 
     if valid_input?(input, @items)
-      puts "You selected #{@items[input - 1].text}"
+      puts "\nYou selected #{@items[input - 1].text.strip}\n"
     else
-      puts "I'm sorry, please select a number on the list"
+      puts "\nI'm sorry, please select a number on the list\n"
       get_user_item
     end
+    # print_item(item)
+
+    puts "\nWould you like to view another item?  Please enter 'Y' or 'N'.\n"
+     input = gets.strip.upcase
+     if input == "Y"
+       list_items
+       get_user_item
+     elsif input == "N"
+       puts "\nThanks for stopping by!  Have a wonderful day!\n"
+       exit
+     else
+       puts "\nI'm sorry, I didn't quite understand what you wanted.  Let me take you back to the list."
+       list_items
+       get_user_item
+     end
   end
 
   def valid_input?(input, data)
