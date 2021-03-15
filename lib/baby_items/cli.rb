@@ -13,7 +13,6 @@ class BabyItems::CLI
   end
 
   def list_items
-    # @items = ["Stroller", "Carrier", "Car Seat"]
     @items = BabyItems::Item.all
     puts "\nPlease select the item you wish to see by selecting the accompany number.\n"
     puts ""
@@ -51,23 +50,23 @@ class BabyItems::CLI
 
   def print_item(item)
     @item = BabyItems::Item.individual_item
-    puts "       ________________________________________________   "
-    puts "\n                   ⭐️  #{item.name} ⭐️   \n"
-    puts "       ________________________________________________   "
-    puts "\nPrice: $#{item.price}\n"
-    puts "Available at: #{item.stores}"
-
-    puts "       ________________________________________________   "
-    puts "\n                    ⭐️   Description ⭐️   \n"
-    puts "       ________________________________________________   "
-    puts "\n#{item.description}\n"
-    puts ""
-
-    puts "       ________________________________________________   "
-    puts "\n                     ⭐️  Specs ⭐️   \n"
-    puts "       ________________________________________________   "
-    puts "\n#{item.specs}\n"
-    puts ""
+    # puts "       ________________________________________________   "
+    # puts "\n                   ⭐️  #{item.name} ⭐️   \n"
+    # puts "       ________________________________________________   "
+    # puts "\nPrice: $#{item.price}\n"
+    # puts "Available at: #{item.stores}"
+    #
+    # puts "       ________________________________________________   "
+    # puts "\n                    ⭐️   Description ⭐️   \n"
+    # puts "       ________________________________________________   "
+    # puts "\n#{item.description}\n"
+    # puts ""
+    #
+    # puts "       ________________________________________________   "
+    # puts "\n                     ⭐️  Specs ⭐️   \n"
+    # puts "       ________________________________________________   "
+    # puts "\n#{item.specs}\n"
+    # puts ""
   end
 
 end
