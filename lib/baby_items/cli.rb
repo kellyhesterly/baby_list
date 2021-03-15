@@ -25,7 +25,7 @@ class BabyItems::CLI
       puts "\nYou selected #{@items[input - 1].name}\n"
     else
       puts "\nI'm sorry, please select a number on the list\n"
-      get_user_item
+      get_user_input
     end
     print_item(input)
 
@@ -33,14 +33,14 @@ class BabyItems::CLI
      input = gets.strip.upcase
      if input == "Y"
        list_items
-       get_user_item
+       get_user_input
      elsif input == "N"
        puts "\nThanks for stopping by!  Have a wonderful day!\n"
        exit
      else
        puts "\nI'm sorry, I didn't quite understand what you wanted.  Let me take you back to the list."
        list_items
-       get_user_item
+       get_user_input
      end
   end
 
