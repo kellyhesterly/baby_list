@@ -5,10 +5,9 @@ class BabyItems::CLI
     puts "\n       ⭐️  Welcome to the top-rated Baby Items list! ⭐️   \n"
     puts "       ________________________________________________   "
     puts ""
-    #get list_of_items
     #get details_of(item)
     list_items
-    get_user_item
+    get_user_input
         #scrape_baby_items for selected (category)
   end
 
@@ -19,7 +18,7 @@ class BabyItems::CLI
     puts ""
   end
 
-  def get_user_item
+  def get_user_input
     input = gets.strip.to_i
 
     if valid_input?(input, @items)
