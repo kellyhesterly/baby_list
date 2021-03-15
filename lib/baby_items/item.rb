@@ -1,5 +1,5 @@
 class BabyItems::Item
-  attr_accessor :name, :price, :description, :stores, :specs
+  attr_accessor :name, :price, :description, :stores
 
   @@all = []
 
@@ -8,7 +8,6 @@ class BabyItems::Item
     @price = price
     @description = description
     @stores = stores
-    @specs = specs
     save
   end
 

@@ -3,21 +3,37 @@ class BabyItems::Scraper
   def self.scrape_baby_items
     @doc = Nokogiri::HTML(open("https://www.babylist.com/hello-baby/best-baby-products"))
     item_names = @doc.css(".product-title.text-underline-fancy")
-    item_names.each.with_index(1) {|item, index| puts "#{index}. #{item.text.strip}"}
+      item_names.each.with_index(1) {|item, index| puts "#{index}. #{item.text.strip}"}
         #this iteration gives me the list of all items from website
   end
 
   def self.baby_item_details
     @doc = Nokogiri::HTML(open("https://www.babylist.com/hello-baby/best-baby-products"))
-    item_detail = []
     index_page = @doc.css(".product-section").each do |card|
-      card.css(".product-description-container").each do |item|
-        item_store = item.css(".offer-store").children.each.with_index(1) {|store, index| puts "#{index}. #{store.text.strip}"}
-        item_price = item.css(".product-price.mtm.mbl.h6").children.each {|price| puts "#{price.text}"}
-        binding.pry
+     card.css(".product-description-container").each do |item|
+    
+
+
+    # @doc = Nokogiri::HTML(open("https://www.babylist.com/hello-baby/best-baby-products"))
+    # index_page = @doc.css(".product-section").each do |card|
+    #   card.css(".product-description-container").each do |item|
+    #     item_name = item.css(".product-title.text-underline-fancy").text
+    #     item_store = item.css(".offer-store").children.each.with_index(1) {|store, index| puts "#{index}. #{store.text.strip}"}
+    #     item_price = item.css(".product-price.mtm.mbl.h6").children.each {|price| puts "#{price.text}"}
+    #
+    # index_page_desc = @doc.css(".mtl").each do |children|
+    #   children.css("p").each do |desc|
+    #       item_desc = desc.children.each {|description| puts "\n#{description.text.strip}\n"}
+
+        #   end
+        # end
       end
     end
   end
+
+
+
+
   # def self.scrape_baby_item_details
   #   doc = Nokogiri::HTML(open("https://www.babylist.com/hello-baby/best-baby-products"))
   #   array_of_item_links = doc.css(".product-description-container a").map {|el| el.attribute('href').value}
