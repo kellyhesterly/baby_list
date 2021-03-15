@@ -14,6 +14,7 @@ class BabyItems::CLI
 
   def list_items
     @items = BabyItems::Item.all
+    @items.each.with_index(1) {|item, index| puts "#{index}. #{item.name}"}
     puts "\nPlease select the item you wish to see by selecting the accompany number.\n"
     puts ""
   end
@@ -22,7 +23,7 @@ class BabyItems::CLI
     input = gets.strip.to_i
 
     if valid_input?(input, @items)
-      puts "\nYou selected #{@items[input - 1].text.strip}\n"
+      puts "\nYou selected #{@items[input - 1].name}\n"
     else
       puts "\nI'm sorry, please select a number on the list\n"
       get_user_item

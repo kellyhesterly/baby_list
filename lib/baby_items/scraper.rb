@@ -3,15 +3,14 @@ class BabyItems::Scraper
   def self.scrape_baby_items
     @doc = Nokogiri::HTML(open("https://www.babylist.com/hello-baby/best-baby-products"))
     item_names = @doc.css(".product-title.text-underline-fancy")
-      item_names.each.with_index(1) {|item, index| puts "#{index}. #{item.text.strip}"}
-        #this iteration gives me the list of all items from website
+    item_names.map {|name| BabyItems::Item.new(name.text.strip)}
   end
 
   def self.baby_item_details
     @doc = Nokogiri::HTML(open("https://www.babylist.com/hello-baby/best-baby-products"))
     index_page = @doc.css(".product-section").each do |card|
      card.css(".product-description-container").each do |item|
-    
+
 
 
     # @doc = Nokogiri::HTML(open("https://www.babylist.com/hello-baby/best-baby-products"))
