@@ -4,22 +4,21 @@ class BabyItems::Scraper
     @doc = Nokogiri::HTML(open("https://www.babylist.com/hello-baby/best-baby-products"))
     item_names = @doc.css(".product-title.text-underline-fancy")
     item_names.map {|name| BabyItems::Item.new(name.text.strip)}
+    #scrapes the name of each baby
   end
 
-  def self.baby_item_details
+  def self.scrape_item_details(item)
     @doc = Nokogiri::HTML(open("https://www.babylist.com/hello-baby/best-baby-products"))
     index_page = @doc.css(".product-section").each do |card|
      card.css(".product-description-container").each do |item|
+    #     item.name << item.css(".product-title.text-underline-fancy").text
+      store = item.css(".offer-store").children.map {|store| store.text.strip}
+      price = item.css(".product-price.mtm.mbl.h6").children.map {|price| price.text}
+        item.stores << store
+        item.price << price
+        # store = item.css(".offer-store").children.each.with_index(1) {|store, index| puts "#{index}. #{store.text.strip}"}
+        # price = item.css(".product-price.mtm.mbl.h6").children.each {|price| puts "#{price.text}"}
 
-
-
-    # @doc = Nokogiri::HTML(open("https://www.babylist.com/hello-baby/best-baby-products"))
-    # index_page = @doc.css(".product-section").each do |card|
-    #   card.css(".product-description-container").each do |item|
-    #     item_name = item.css(".product-title.text-underline-fancy").text
-    #     item_store = item.css(".offer-store").children.each.with_index(1) {|store, index| puts "#{index}. #{store.text.strip}"}
-    #     item_price = item.css(".product-price.mtm.mbl.h6").children.each {|price| puts "#{price.text}"}
-    #
     # index_page_desc = @doc.css(".mtl").each do |children|
     #   children.css("p").each do |desc|
     #       item_desc = desc.children.each {|description| puts "\n#{description.text.strip}\n"}
