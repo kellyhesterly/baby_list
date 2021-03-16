@@ -58,15 +58,13 @@ class BabyItems::CLI
   def print_item(item)
     @item = BabyItems::Item.individual_item
     #right now, @item is pulling all of the item objects from the website.  I need an individual item only
-    binding.pry
 
-
-
-    # puts "       ________________________________________________   "
-    # puts "\n                   ⭐️  #{item.name} ⭐️   \n"
-    # puts "       ________________________________________________   "
-    # puts "\nPrice: $#{item.price}\n"
-    # puts "Available at: #{item.stores}"
+    puts "       ________________________________________________   "
+    puts "\n                   ⭐️  #{item.name} ⭐️   \n"
+    puts "       ________________________________________________   "
+    puts "\nPrice: #{item.price}\n"
+    puts "Available at:"
+    puts  "#{item.stores}"
     #
     # puts "       ________________________________________________   "
     # puts "\n                    ⭐️   Description ⭐️   \n"
