@@ -59,11 +59,15 @@ class BabyItems::CLI
   end
 
   def print_item(item)
+    @item = item
+    binding.pry
+
     puts""
     puts "\n                   ⭐️  #{item.name} ⭐️   \n"
     puts "\nPrice: #{item.price}\n"
     puts "Available at:"
-    puts  "#{item.stores}"
+
+    puts "#{item.stores}"
     puts "Website: #{item.url}"
     #
     puts "       ________________________________________________   "

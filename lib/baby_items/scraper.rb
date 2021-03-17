@@ -7,10 +7,13 @@ class BabyItems::Scraper
         name = card.css(".product-title.text-underline-fancy").text.strip
         price = card.css(".product-price.mtm.mbl.h6").children[0].text
         url = card.css("a")[0].attributes["href"].value
-        stores = card.css(".offer-store").children.map {|store| store.text.strip}
+        stores = card.css(".offer-store").children.map do |store|
+         store.text.split(", ").each.with_index(1) {|store, index| "#{index}. #{store}"}
+          binding.pry
+
 
         BabyItems::Item.new(name, price, url, stores)
-
+        end
       end
     end
 
