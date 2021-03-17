@@ -7,20 +7,12 @@ class BabyItems::Scraper
     #scrapes the name of each baby item
   end
 
-  # def self.scrape_item_details(item)
-  #   deal_1 = self.new
-  #   deal_1.name = "Uppababy Stroller"
-  #   deal_1.price = "$1000"
-  #   deal_1.stores = "Target", "Amazon", "Buy Buy Baby"
-  #   deal_1.description = "The best stroller in the world is amazing"
-  #   deal_1.url = "http://www.babylist.com"
-  #
-  #   deal_2 = self.new
-  #   deal_2.name = "NoseFrida"
-  #   deal_2.price = "$15.00"
-  #   deal_2.stores = "Walmart"
-  #   deal_2.description = "Removes boogers from sucking the snot out of your baby's nose"
-  #   deal_2.url = "http://www.babylist.com"
+  def self.scrape_item_details
+
+  end
+
+
+
   #
   #   [deal_1, deal_2]
     # index_page = @doc.css(".product-section").each do |card|

@@ -33,24 +33,27 @@ class BabyItems::Item
     #calls the scraper class method to scrape all baby item products from website
   end
 
+  def self.find(id)
+    self.all[id-1]
+  end
+
   def self.individual_item
-    deal_1 = self.new
-    deal_1.name = "Uppababy Stroller"
-    deal_1.price = "$1000"
-    deal_1.stores = "Target", "Amazon", "Buy Buy Baby"
-    deal_1.description = "The best stroller in the world is amazing"
-    deal_1.url = "http://www.babylist.com"
+    item = self.new
+    item.name = "Uppababy Stroller"
+    item.price = "$1000"
+    item.stores = "Target", "Amazon", "Buy Buy Baby"
+    item.description = "The best stroller in the world is amazing"
+    item.url = "http://www.babylist.com"
 
-    deal_2 = self.new
-    deal_2.name = "NoseFrida"
-    deal_2.price = "$15.00"
-    deal_2.stores = "Walmart"
-    deal_2.description = "Removes boogers from sucking the snot out of your baby's nose"
-    deal_2.url = "http://www.babylist.com"
-
-
+  item
     # BabyItems::Scraper.scrape_item_details(self)
     #calls the scraper class method to scrape baby item details of specific
   end
+
+def self.item_details
+  item_details = []
+  item_details << self.individual_item
+  item_details
+end
 
 end
