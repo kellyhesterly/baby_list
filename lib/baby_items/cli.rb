@@ -60,14 +60,14 @@ class BabyItems::CLI
 
   def print_item(item)
     @item = item
-    binding.pry
+
 
     puts""
     puts "\n                   ⭐️  #{item.name} ⭐️   \n"
     puts "\nPrice: #{item.price}\n"
     puts "Available at:"
-
-    puts "#{item.stores}"
+    @item.stores.each.with_index(1) {|store, index| puts "#{index}. #{store}"}
+    # puts "#{item.stores}"
     puts "Website: #{item.url}"
     #
     puts "       ________________________________________________   "
