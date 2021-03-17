@@ -2,19 +2,41 @@ class BabyItems::Scraper
 
   def self.scrape_baby_items
     @doc = Nokogiri::HTML(open("https://www.babylist.com/hello-baby/best-baby-products"))
-    item_names = @doc.css(".product-title.text-underline-fancy")
-    item_names.map {|name| BabyItems::Item.new(name.text.strip)}
-    #scrapes the name of each baby item
+      index_page = @doc.css(".product-description-container").each do |card|
+
+        name = card.css(".product-title.text-underline-fancy").text.strip
+        price = card.css(".product-price.mtm.mbl.h6").children[0].text
+        url = card.css("a")[0].attributes["href"].value
+        stores = card.css(".offer-store").children.map {|store| store.text.strip}
+
+        BabyItems::Item.new(name, price, url, stores)
+
+      end
+    end
+
+      #   item.name = card.css(".product-title.text-underline-fancy").text.strip
+      #   item.price = card.css(".product-price.mtm.mbl.h6").children[0].text
+      #   item.url = card.css("a")[0].attributes["href"].value
+      #   item.stores << card.css(".offer-store").children.map {|store| store.text.strip}
+        #
+        # item_names = @doc.css(".product-title.text-underline-fancy")
+        # item_names.map {|name| BabyItems::Item.new(name.text.strip)}
+
+
+
+
   end
 
-  def self.scrape_item_details
 
-  end
+      # item = self.new
+      # item.name = i.css(".product-title.text-underline-fancy").text
+      # item.price = i.css(".product-price.mtm.mbl.h6").children[0].text
+      # item.stores << i.css(".offer-store").children.map {|store| store.text.strip}
+      # item.url = i.css("a")[0].attributes["href"].value
+      # item
 
 
 
-  #
-  #   [deal_1, deal_2]
     # index_page = @doc.css(".product-section").each do |card|
     #  card.css(".product-description-container").each do |i|
     #
@@ -28,7 +50,7 @@ class BabyItems::Scraper
     # end
 
 
-  end
+
     #     item.name << item.css(".product-title.text-underline-fancy").text
       # store = item.css(".offer-store").children.map {|store| store.text.strip}
       # price = item.css(".product-price.mtm.mbl.h6").children.map {|price| price.text}
