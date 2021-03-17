@@ -59,28 +59,19 @@ class BabyItems::CLI
   end
 
   def print_item(item)
-    @item = item
-
-
     puts""
     puts "\n                   ⭐️  #{item.name} ⭐️   \n"
-    puts "\nPrice: #{item.price}\n"
-    puts "Available at:"
-    @item.stores.each.with_index(1) {|store, index| puts "#{index}. #{store}"}
-    # puts "#{item.stores}"
-    puts "Website: #{item.url}"
-    #
+    puts""
     puts "       ________________________________________________   "
-    puts "\n                    ⭐️   Description ⭐️   \n"
+    puts "\n                      Description    \n"
     puts "       ________________________________________________   "
     puts "\n#{item.description}\n"
     puts ""
-    #
-    # puts "       ________________________________________________   "
-    # puts "\n                     ⭐️  Specs ⭐️   \n"
-    # puts "       ________________________________________________   "
-    # puts "\n#{item.specs}\n"
-    # puts ""
+    puts "\nPrice: #{item.price}\n"
+    puts "Available at:"
+    puts ""
+    item.stores.each.with_index(1) {|store, index| puts "#{index}. #{store}"}
+    puts "\nWebsite: #{item.url}\n"
   end
 
 end

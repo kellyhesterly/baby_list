@@ -3,7 +3,7 @@ class BabyItems::Item
 
   @@all = []
 
-  def initialize(name, price, url, stores)
+  def initialize(name, price, url, stores, description)
     @name = name
     @price = price
     @description = description
@@ -11,18 +11,6 @@ class BabyItems::Item
     @url = url
     save
   end
-
-  # def initialize(att_hash)
-  # #   @name = att_hash[:name]
-  # #   @price = att_hash[:price]
-  # #   @description = att_hash[:description]
-  # #
-  #   att_hash.each do |key, value|
-  #     self.send("#{key}=", value)
-  #   end
-  #   @stores = []
-  #   save
-  # end
 
   def save
     @@all << self
@@ -37,7 +25,5 @@ class BabyItems::Item
   def self.find(id)
     self.all[id-1]
   end
-
-
 
 end
