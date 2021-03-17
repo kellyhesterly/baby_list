@@ -7,7 +7,6 @@ class BabyItems::CLI
     puts ""
     list_items
     get_user_input
-        #scrape_baby_items for selected (category)
   end
 
   def list_items
@@ -67,6 +66,7 @@ class BabyItems::CLI
     puts "_______________________________  "
     puts "\n#{item.description}\n"
     puts ""
+    puts "_______________________________  "
     puts "\nPrice: #{item.price}\n"
     puts "Available at:"
     puts ""
