@@ -25,7 +25,8 @@ class BabyItems::CLI
 
     if valid_input?(input, @items)
       #calls upon method below
-      puts "\nYou selected #{@items[input - 1].name}\n"
+      puts "\nYou selected:"
+      # puts "\nYou selected #{@items[input - 1].name}\n"
       puts ""
         #here I am taking the array of items, and subtracting the user input - 1 to display the baby item name selected
     else
@@ -59,18 +60,18 @@ class BabyItems::CLI
   end
 
   def print_item(item)
+    puts "                   ⭐️  #{item.name} ⭐️   "
     puts""
-    puts "\n                   ⭐️  #{item.name} ⭐️   \n"
-    puts""
-    puts "       ________________________________________________   "
-    puts "\n                      Description    \n"
-    puts "       ________________________________________________   "
+    puts "_______________________________  "
+    puts "\n       Description    \n"
+    puts "_______________________________  "
     puts "\n#{item.description}\n"
     puts ""
     puts "\nPrice: #{item.price}\n"
     puts "Available at:"
     puts ""
     item.stores.each.with_index(1) {|store, index| puts "#{index}. #{store}"}
+    puts "_______________________________  "
     puts "\nWebsite: #{item.url}\n"
   end
 
