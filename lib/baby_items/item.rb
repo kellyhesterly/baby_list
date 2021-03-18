@@ -19,7 +19,6 @@ class BabyItems::Item
   def self.all
     BabyItems::Scraper.scrape_baby_items if @@all.empty?
     @@all
-    #calls the scraper class method to scrape all baby item products from website
   end
 
   def self.find(id)
