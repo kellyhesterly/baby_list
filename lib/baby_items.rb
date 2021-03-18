@@ -8,7 +8,6 @@ require 'pry'
 require 'nokogiri'
 require 'open-uri'
 require 'colorize'
-require 'rainbow'
 # require 'lolize/auto'
 
 module BabyItems
