@@ -48,6 +48,7 @@ class BabyItems::CLI
        exit
      else
        puts "\nI'm sorry, I didn't quite understand what you wanted.  Let me take you back to the list."
+       puts""
        list_items
        get_user_input
      end

@@ -1,8 +1,8 @@
 class BabyItems::Scraper
 
   def self.scrape_baby_items
-    @doc = Nokogiri::HTML(open("https://www.babylist.com/hello-baby/best-baby-products"))
-      index_page = @doc.css(".product-section").each do |card|
+    doc = Nokogiri::HTML(open("https://www.babylist.com/hello-baby/best-baby-products"))
+      index_page = doc.css(".product-section").each do |card|
     # @doc = Nokogiri::HTML(open("https://www.babylist.com/hello-baby/best-baby-products"))
     #   index_page = @doc.css(".product-description-container").each do |card|
     #
