@@ -51,18 +51,18 @@ class BabyItems::CLI
   end
 
   def print_item(item)
-    puts "⭐️  #{item.name} ⭐️   ".light_blue
+    puts "⭐️  #{item.name} ⭐️ ".light_blue
     puts""
-    puts "_______________________________  "
+    puts "_______________________________"
     puts "\n        Description    \n".light_green
     puts "_______________________________  "
     puts "\n#{item.description}\n".cyan
-    puts "_______________________________  "
+    puts "_______________________________"
     puts "\nPrice: #{item.price}\n".green
     puts "Available at:".light_yellow
     puts ""
     item.stores.each.with_index(1) {|store, index| puts "#{index}. #{store}".light_magenta}
-    puts "_______________________________  "
+    puts "_______________________________"
     puts "\nWebsite: #{item.url}\n".light_blue.underline
   end
 
