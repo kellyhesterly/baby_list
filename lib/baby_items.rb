@@ -7,6 +7,9 @@ require_relative "./baby_items/scraper"
 require 'pry'
 require 'nokogiri'
 require 'open-uri'
+require 'colorize'
+require 'rainbow'
+# require 'lolize/auto'
 
 module BabyItems
   class Error < StandardError; end

@@ -2,7 +2,7 @@ class BabyItems::CLI
 
   def call
     puts "       ________________________________________________   "
-    puts "\n       ⭐️  Welcome to the top-rated Baby Items list! ⭐️   \n"
+    puts "\n       ⭐️  Welcome to the top-rated Baby Items list! ⭐️   \n".light_blue
     puts "       ________________________________________________   "
     puts ""
     list_items
@@ -12,7 +12,7 @@ class BabyItems::CLI
   def list_items
     @items = BabyItems::Item.all
       #a list of item objects
-    @items.each.with_index(1) {|item, index| puts "#{index}. #{item.name}"}
+    @items.each.with_index(1) {|item, index| puts "#{index}. #{item.name}".cyan}
     puts "\nPlease select the item you wish to see by selecting the accompany number.\n"
     puts ""
       #displays the name of all baby items in a numbered list
@@ -59,20 +59,19 @@ class BabyItems::CLI
   end
 
   def print_item(item)
-    puts "                   ⭐️  #{item.name} ⭐️   "
+    puts "                   ⭐️  #{item.name} ⭐️   ".light_blue
     puts""
     puts "_______________________________  "
-    puts "\n       Description    \n"
+    puts "\n       Description    \n".light_blue
     puts "_______________________________  "
-    puts "\n#{item.description}\n"
+    puts "\n#{item.description}\n".cyan
+    puts "_______________________________  "
+    puts "\nPrice: #{item.price}\n".green
+    puts "Available at:".light_yellow
     puts ""
+    item.stores.each.with_index(1) {|store, index| puts "#{index}. #{store}".light_magenta}
     puts "_______________________________  "
-    puts "\nPrice: #{item.price}\n"
-    puts "Available at:"
-    puts ""
-    item.stores.each.with_index(1) {|store, index| puts "#{index}. #{store}"}
-    puts "_______________________________  "
-    puts "\nWebsite: #{item.url}\n"
+    puts "\nWebsite: #{item.url}\n".light_blue.underline
   end
 
 end
