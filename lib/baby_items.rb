@@ -8,7 +8,7 @@ require 'pry'
 require 'nokogiri'
 require 'open-uri'
 require 'colorize'
-# require 'lolize/auto'
+require 'lolize'
 
 module BabyItems
   class Error < StandardError; end

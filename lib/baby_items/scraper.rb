@@ -9,8 +9,6 @@ class BabyItems::Scraper
         url = card.css("a")[0].attributes["href"].value
         stores = card.css(".offer-store").children.map {|store| store.text.strip}
         description = card.css(".mtl p").children.text.strip
-        # description = card.css(".mtl p").children[0].text.strip
-        # binding.pry
 
         BabyItems::Item.new(name, price, url, stores, description)
 
