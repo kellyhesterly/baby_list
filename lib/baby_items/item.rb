@@ -22,7 +22,7 @@ class BabyItems::Item
   end
 
   def self.find(id)
-    self.all[id-1]
+    @@all[id-1]
   end
 
 end
