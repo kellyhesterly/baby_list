@@ -17,7 +17,7 @@ class BabyItems::Item
   end
 
   def self.all
-    BabyItems::Scraper.scrape_baby_items if @@all.empty?
+    BabyItems::Scraper.scrape_baby_items
     @@all
   end
 
