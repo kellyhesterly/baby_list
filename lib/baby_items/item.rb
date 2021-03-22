@@ -3,14 +3,14 @@ class BabyItems::Item
 
   @@all = []
 
-  def initialize(name, price, url, stores, description)
-    @name = name
-    @price = price
-    @description = description
-    @stores = stores
-    @url = url
-    save
-  end
+  # def initialize(name, price, url, stores, description)
+  #   @name = name
+  #   @price = price
+  #   @description = description
+  #   @stores = stores
+  #   @url = url
+  #   save
+  # end
 
   def save
     @@all << self

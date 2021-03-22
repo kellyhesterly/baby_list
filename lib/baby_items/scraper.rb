@@ -10,14 +10,14 @@ class BabyItems::Scraper
         stores = card.css(".offer-store").children.map {|store| store.text.strip}
         description = card.css(".mtl p").children.text.strip
 
-        BabyItems::Item.new(name, price, url, stores, description)
-        # item = BabyItems::Item.new
-        # item.name = name
-        # item.price = price
-        # item.url = url
-        # item.stores = stores
-        # item.description = description
-        # item.save
+        # BabyItems::Item.new(name, price, url, stores, description)
+        item = BabyItems::Item.new
+        item.name = name
+        item.price = price
+        item.url = url
+        item.stores = stores
+        item.description = description
+        item.save
 
       end
     end
