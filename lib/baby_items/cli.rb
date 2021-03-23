@@ -12,11 +12,13 @@ class BabyItems::CLI
   def list_items
     @items = BabyItems::Item.all
     @items.each.with_index(1) {|item, index| puts "#{index}. #{item.name}".cyan}
-    puts "\nPlease select the item you wish to see by selecting the accompany number.\n"
-    puts ""
   end
 
+
   def get_user_input
+    puts "\nPlease select the item you wish to see by selecting the accompany number.\n"
+    puts ""
+
     input = gets.strip.to_i
 
     if valid_input?(input, @items)
