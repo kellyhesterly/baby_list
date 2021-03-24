@@ -20,7 +20,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+The purpose and usage of this gem is to provides parents with information on top-rated baby items.  
 
 ## Development
 
